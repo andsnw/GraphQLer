@@ -91,6 +91,8 @@ def set_config(new_config: dict):
             setattr(config, k, v)
         else:
             print(f"(!) Unknown configuration {k}, skipping it")
+    from graphqler.utils.request_utils import reset_session
+    reset_session()
 
 
 def generate_new_config(config_file_to_write: str) -> None:

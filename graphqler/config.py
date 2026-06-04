@@ -109,8 +109,8 @@ SKIP_DOS_ATTACKS: bool = True  # This mode is for when we want to skip the DoS c
 SKIP_INJECTION_ATTACKS: bool = False  # This mode is for when we want to skip the injection check
 SKIP_MISC_ATTACKS: bool = False  # This mode is for when we want to skip the miscellaneous attacks
 SKIP_SUBSCRIPTIONS: bool = True  # Subscriptions require WebSocket transport; disabled by default (opt-in with --subscriptions)
-SUBSCRIPTION_TIMEOUT: int = 5  # Seconds to wait for events when executing a subscription
-SUBSCRIPTION_PROTOCOL: str = "graphql-ws"  # WebSocket sub-protocol: "graphql-ws" (modern) or "subscriptions-transport-ws" (legacy Apollo)
+SUBSCRIPTION_TIMEOUT: int = 1  # Seconds to wait for events when executing a subscription
+SUBSCRIPTION_PROTOCOL: str = "graphql-transport-ws"  # WebSocket sub-protocol: "graphql-transport-ws" (modern) or "subscriptions-transport-ws" (legacy Apollo)
 
 """For NoSQL blind extraction"""
 NOSQLI_BLIND_EXTRACTION: bool = False  # When True, attempt char-by-char data extraction after a potential NoSQLi is detected

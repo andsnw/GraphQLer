@@ -13,6 +13,13 @@ last_request_time = time.time()
 session = None
 
 
+def reset_session() -> None:
+    """Reset the cached HTTP session so new config/auth headers take effect."""
+    global session, last_request_time
+    session = None
+    last_request_time = time.time()
+
+
 def get_headers() -> dict:
     """Get the headers for the request.
       Authorization will be used from the AUTHORIZATION variable first, then from the CUSTOM_HEADERS variable.
@@ -235,4 +242,3 @@ def _create_session_with_auth(auth_token: str) -> requests.Session:
         requests.Session: A fresh session that is NOT stored globally.
     """
     return _create_session_with_headers({"Authorization": auth_token} if auth_token else {})
-

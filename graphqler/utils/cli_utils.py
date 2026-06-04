@@ -13,6 +13,8 @@ def set_auth_token_constant(auth_argument: str) -> None:
         config.AUTHORIZATION = auth_argument
     else:
         config.AUTHORIZATION = f"Bearer {auth_argument}"
+    from graphqler.utils.request_utils import reset_session
+    reset_session()
 
 
 def set_idor_auth_token_constant(auth_argument: str) -> None:
@@ -27,6 +29,8 @@ def set_idor_auth_token_constant(auth_argument: str) -> None:
         config.IDOR_SECONDARY_AUTH = auth_argument
     else:
         config.IDOR_SECONDARY_AUTH = f"Bearer {auth_argument}"
+    from graphqler.utils.request_utils import reset_session
+    reset_session()
 
 
 def is_compiled(path: str | Path) -> bool:

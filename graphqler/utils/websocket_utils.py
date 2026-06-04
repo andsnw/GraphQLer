@@ -98,7 +98,7 @@ async def _run_subscription(url: str, payload: dict, timeout: float, protocol: s
     extra_headers = headers or {}
 
     async with websockets.connect(ws_url, subprotocols=cast(Any, [protocol]), additional_headers=extra_headers) as websocket:
-        if protocol == "graphql-ws":
+        if protocol in ("graphql-ws", "graphql-transport-ws"):
             return await _send_graphql_ws(websocket, payload, timeout)
         else:
             return await _send_subscriptions_transport_ws(websocket, payload, timeout)

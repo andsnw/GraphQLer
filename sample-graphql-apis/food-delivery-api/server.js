@@ -239,7 +239,7 @@ const resolvers = {
                 reviews: []
               };
 
-              restaurant.push(restaurant);
+              restaurants.push(restaurant);
               restaurantMap[row.id] = restaurant;
             }
 
