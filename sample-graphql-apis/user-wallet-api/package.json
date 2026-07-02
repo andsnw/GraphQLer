@@ -1,12 +1,13 @@
 {
   "dependencies": {
-    "@apollo/server": "^5.5.0",
+    "@apollo/server": "^5.5.1",
     "@as-integrations/express5": "^1.1.2",
     "@graphql-tools/schema": "^10.0.31",
     "body-parser": "^2.2.2",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "graphql-ws": "^6.0.7",
+    "uuid": "^14.0.1",
     "ws": "^8.21.0"
   },
   "name": "user-wallet-api",

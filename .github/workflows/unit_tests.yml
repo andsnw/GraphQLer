@@ -25,9 +25,11 @@ jobs:
     - name: Install Python dependencies
       run: uv sync --extra mcp
 
-    - name: Install Python dependencies
+    - name: Install OS packages
       run: |
-        sudo apt install -y $(grep -o ^[^#][[:alnum:]-]* "packages.list")
+        if [ -s packages.list ]; then
+          sudo apt install -y $(grep -o ^[^#][[:alnum:]-]* packages.list)
+        fi
 
     - name: Test with pytest
       run: |
