@@ -1,0 +1,68 @@
+version: 1
+targets:
+  injection-vulnerabilities-api:
+    results: ci-test-injection-vulnerabilities-api
+    findings:
+      - detector: SQL Injection (SQLi) Injection
+        node: searchPosts
+        level: confirmed
+      - detector: Cross-Site Scripting (XSS) Injection
+        node: createPost
+        level: confirmed
+      - detector: Cross-Site Scripting (XSS) Injection
+        node: getPost
+        level: confirmed
+      - detector: Path Injection
+        node: readFile
+        level: confirmed
+      - detector: OS Command Injection
+        node: executeCommand
+        level: confirmed
+  nosql-time-sql-api:
+    results: ci-test-nosql-time-sql-api
+    findings:
+      - detector: NoSQL Injection (NoSQLi)
+        node: searchUsers
+        level: confirmed
+      - detector: Time-based SQL Injection (Blind SQLi)
+        node: timeSqlQuery
+        level: confirmed
+  ssrf-api:
+    results: ci-test-ssrf-api
+    findings:
+      - detector: SSRF Injection
+        node: fetchUrl
+        level: confirmed
+      - detector: SSRF Injection
+        node: pingEndpoint
+        level: confirmed
+      - detector: SSRF Injection
+        node: registerWebhook
+        level: confirmed
+  api-security-api:
+    results: ci-test-api-security-api
+    findings:
+      - detector: Introspection Enabled
+        node: "*"
+        level: confirmed
+      - detector: Field Suggestions Enabled
+        node: "*"
+        level: confirmed
+      - detector: Query deny bypass
+        node: adminUsers
+        level: confirmed
+  idor-api:
+    results: ci-test-idor-api
+    findings:
+      - detector: IDOR_CHAIN
+        node: getNote
+        level: confirmed
+      - detector: IDOR_CHAIN
+        node: getOrder
+        level: confirmed
+  very-vulnerable-social-media-api:
+    results: ci-test-very-vulnerable-social-media-api
+    findings:
+      - detector: UAF_CHAIN
+        node: getPost
+        level: confirmed
